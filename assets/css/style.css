@@ -1,5 +1,15 @@
-.container {
+.container1 {
+    display: inline;
     float: left;
+    width: 30%;
+    margin: 0px;
+    background-color: #82e2f3;
+    padding-bottom: 170px;
+  }
+
+.container2 {
+    display: inline;
+    float: right;
     width: 30%;
     margin: 0px;
     background-color: #82e2f3;
