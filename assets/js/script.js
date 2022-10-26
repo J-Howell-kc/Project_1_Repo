@@ -35,3 +35,79 @@ Navigator.geolocation;
             console.log(curTemp)
             })};
     */
+//js of Planner//
+var timeDisplayEl = $('#time-display');
+var eventDisplayEl = $('#event-display');
+var eventModalEl = $('#event-modal');
+var eventFormEl = $('#event-form');
+var eventNameInputEl = $('#event-name-input');
+var eventTimeInputEl = $('#event-time-input');
+var eventLocationInputEl = $('#event-location-input');
+var dueDateInputEl = $('#due-date-input');  
+
+function displayTime() {
+  var rightNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
+  timeDisplayEl.text(rightNow);
+}
+
+//may adding weather//
+
+function printEventData(name, time, eventLocation, dueDate) {
+  var eventRowEl = $('<tr>');
+
+  var eventNameTdEl = $('<td>').addClass('p-2').text(name);
+
+  var eventTimeTdEl = $('<td>').addClass('p-2').text(time);
+
+  var locationTdEl = $('<td>').addClass('p-2').text(eventLocation);
+
+  var dueDateTdEl = $('<td>').addClass('p-2').text(dueDate);
+
+  var daysToDate = moment(dueDate, 'MM/DD/YYYY').diff(moment(), 'days');
+
+  var daysLeftTdEl = $('<td>').addClass('p-2').text(daysToDate);
+
+
+  var deleteEventBtn = $('<td>')
+    .addClass('p-2 delete-event-btn text-center')
+    .text('X');
+
+  eventRowEl.append(
+    eventNameTdEl,
+    eventTimeTdEl,
+    locationTdEl,
+    dueDateTdEl,
+    daysLeftTdEl,
+    deleteEventBtn
+  );
+
+  eventDisplayEl.append(eventRowEl);
+
+  eventModalEl.modal('hide');
+}
+
+function handleDeleteEvent(event) {
+  console.log(event.target);
+  var btnClicked = $(event.target);
+  btnClicked.parent('tr').remove();
+}
+
+function handleEventFormSubmit(event) {
+  event.preventDefault();
+
+  var eventName = eventNameInputEl.val().trim();
+  var eventTime = eventTimeInputEl.val().trim();
+  var eventLocation = eventLocationInputEl.val().trim();
+  var dueDate = dueDateInputEl.val().trim();
+
+  printEventData(eventName, eventTime, eventLocation, dueDate);
+
+  eventFormEl[0].reset();
+}
+
+eventFormEl.on('submit', handleEventFormSubmit);
+eventDisplayEl.on('click', '.delete-event-btn', handleDeleteEvent);
+dueDateInputEl.datepicker({ minDate: 1 });
+
+setInterval(displayTime, 1000);
+//end js of planner//
