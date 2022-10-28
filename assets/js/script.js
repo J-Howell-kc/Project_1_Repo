@@ -44,6 +44,8 @@ Navigator.geolocation;
           };
             })
   }
+  
+  
   function error() {
     //alert('Sorry, no position available.');
     // Make weather card say "weather data not available"
@@ -57,7 +59,7 @@ Navigator.geolocation;
 
 
 //js of Planner//
-var timeDisplayEl = $('#time-display');
+var timeDisplayEl = $('#dayTime');
 var eventDisplayEl = $('#event-display');
 var eventModalEl = $('#event-modal');
 var eventFormEl = $('#event-form');
@@ -67,9 +69,10 @@ var eventLocationInputEl = $('#event-location-input');
 var dueDateInputEl = $('#due-date-input');  
 
 function displayTime() {
-  var rightNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
+  var rightNow = moment().format('hh:mm:ss a [on] MMM DD, YYYY ');
   timeDisplayEl.text(rightNow);
-}
+  }
+  setInterval(displayTime, 1000);
 
 //may adding weather//
 
