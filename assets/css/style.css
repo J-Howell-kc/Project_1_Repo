@@ -1,6 +1,5 @@
 .container1 {
-    display: inline;
-    float: left;
+    display: inline-block;
     width: 30%;
     margin: 0px;
     background-color: #82e2f3;
@@ -115,3 +114,11 @@ h2 {
     cursor: pointer;
   }
   /*ending styling for planner*/
+
+  .mainContainer {
+    display: flex;
+  }
+
+  .sectionOne {
+    max-width: 40%;
+  }
