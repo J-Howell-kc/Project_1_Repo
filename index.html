@@ -6,8 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <!--New Link for the Planner-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--End Link for the Planner-->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -16,8 +19,7 @@
     />
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet"/>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Day at a Glance</title>
 
@@ -27,34 +29,152 @@
         <h2>Secondary Title Header Here</h2>
       </header>
 
+    <div class = "mainContainer">
       <div class="container1">
         <div class="row">
-          <p id="searchItem">Do Something</p>
-          <div class="row form-group form-inline">
-             <input type="text" placeholder="Search Item" class="form-control"/>
-             <button id="submit" class="btn btn-primary">Search</button>
-           </div>
+          <p id="searchItem">Current Weather</p>
+          <div class="row form-group form-inline"></div>
          </div>
       </div>
 
+      <section class = "sectionOne col-9">          
+
+        <h3 id="fiveDayForcast">5-Day Forecast</h3>
+        <div id="fiveDay" class="row"></div>
+      </section>
+      
       <div class="container2">
         <div class="row">
-          <p id="searchItem">Do Something Else</p>
+          <p id="searchItem">News will go here</p>
           <div class="row form-group form-inline">
-             <input type="text" placeholder="Search Item" class="form-control"/>
-             <button id="submit" class="btn btn-primary">Search</button>
            </div>
          </div>
       </div>
-
-      <section class = "sectionOne">
-        <p>Put a bunch of stuff here</p>
-      </section>
-      <section class = "sectionTwo">
-        <p>Maybe some more stuff here</p>
-      </section>
-    </body>
+    </div>
+<!--New body of the planner-->
+    <main class="container-fluid">
+        <div class="row">
+          <section class="col-12 col-md-4 col-lg-3">
+            <div class="card custom-card">
+              <h3 class="card-header">
+                Instructions
+              </h3>
+              <div class="card-body">
+                <div class="card-text">
+                  Click the button below to create an event :
+                </div>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Event Name</li>
+                <li class="list-group-item">Times</li>
+                <li class="list-group-item">Event Date</li>
+                <li class="list-group-item">Location</li>
+              </ul>
+              <div class="card-footer">
+                <button class="btn btn-block custom-btn" data-toggle="modal" data-target="#event-modal">Add
+                  Event </button>
+              </div>
+            </div>
+          </section>
     
+          <section class="col-12 col-md-8 col-lg-9">
+            <div class="table-responsive">
+              <table class="table table-bordered custom-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Event Name</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Event Date</th>
+                    <th scope="col">Days Until Event Date</th>
+                    <th scope="col" class="p-3"></th>
+                  </tr>
+                </thead>
+                <tbody id="event-display"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </main>
+    
+      <div class="modal fade custom-modal" id="event-modal" tabindex="-1" role="dialog"
+        aria-labelledby="event-modal-form" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="event-modal-form">Add a new event .</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form id="event-form">
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="event-name-input">Event Name</label>
+                  <input type="text" id="event-name-input" class="form-control" placeholder="Enter the event's name"
+                    required />
+                </div>
+    
+                <div class="form-group">
+                  <label for="event-time-input">Times</label>
+                  <select class="form-control" id="event-time-input">
+                    <option selected disabled>Pick one...</option>
+                    <option value="1 AM">1 AM </option>
+                    <option value="2 AM">2 AM </option>
+                    <option value="3 AM">3 AM </option>
+                    <option value="4 AM">4 AM </option>
+                    <option value="5 AM">5 AM </option>
+                    <option value="6 AM">6 AM </option>
+                    <option value="7 AM">7 AM </option>
+                    <option value="8 AM">8 AM </option>
+                    <option value="9 AM">9 AM </option>
+                    <option value="10 AM">10 AM </option>
+                    <option value="11 AM">11 AM </option>
+                    <option value="12 AM">12 AM </option>
+                    <option value="1 PM">1 PM </option>
+                    <option value="2 PM">2 PM </option>
+                    <option value="3 PM">3 PM </option>
+                    <option value="4 PM">4 PM </option>
+                    <option value="5 PM">5 PM </option>
+                    <option value="6 PM">6 PM </option>
+                    <option value="7 PM">7 PM </option>
+                    <option value="8 PM">8 PM </option>
+                    <option value="9 PM">9 PM </option>
+                    <option value="10 PM">10 PM </option>
+                    <option value="11 PM">11 PM </option>
+                    <option value="12 PM">12 PM </option>
+                  </select>
+                </div>
+    
+                <div class="form-group">
+                  <label for="event-location-input">Location</label>
+                  <input type="text" id="event-location-input" class="form-control" required />
+                </div>
+    
+                <div class="form-group">
+                  <label for="due-date-input">Event Date</label>
+                  <input type="text" min='1' id="due-date-input" class="form-control" placeholder="event date?"
+                    required />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn custom-btn">Submit Event Info</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    
+    </body>
+    <!--end of planner-->
+    <!--New script of planner-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <!--end of planner-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
