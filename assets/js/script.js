@@ -23,12 +23,12 @@ Navigator.geolocation;
             console.log(curFeelsLike);
             
             var cityMain = $("<div col-12>").append($("<p><h5>" + curCity  + "</h5><p>"));
-            // var image = $('<img class="imgsize">').attr('src', 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png');        
+            var image = $('<img class="imgsize">').attr('src', 'http://openweathermap.org/img/w/' + data.list[0].weather[0].icon + '.png');        
             var cityTemp = $('<p>').text('Temperature : ' + curTemp + ' °F');
             var cityHumid = $('<p>').text('Humidity : ' + curHumidity + '%');
             // var cityWind = $('<p>').text('Wind Speed : ' + data.wind.speed + 'MPH');       
       
-            cityMain.append(cityTemp).append(cityHumid);
+            cityMain.append(cityTemp).append(cityHumid).append(image);
             $('#current-weather').empty();
             $('#current-weather').append(cityMain);
             displayForecast(lat,lon);
