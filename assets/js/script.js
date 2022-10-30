@@ -21,29 +21,42 @@ Navigator.geolocation;
             console.log(curWeatherType);
             console.log(curHumidity);
             console.log(curFeelsLike);
-            function displayForecast(lat, lon) {
-              $.ajax({
-                  url: 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=217731b2c4c4604614a6ee76ea8b8b9d&units=imperial',
-                  method: "GET",
-              }).then(function (response) {
-                  var arrayList = response.list;
-                  for (var i = 0; i < arrayList.length; i++) {
-                      if (arrayList[i].dt_txt.split(' ')[1] === '12:00:00') {
-                          var cityMain = $('<div>');
-                          cityMain.addClass('col bg-primary text-white ml-3 mb-3 rounded>');
-                          var fiveDayDate = $("<h6>").text(response.list[i].dt_txt.split(" ")[0]);
-                          var cityTemp = $('<p>').text('Temp : ' + arrayList[i].main.temp + ' °F ');
-                          var cityWind = $('<p>').text('Wind Speed : ' + arrayList[i].wind.speed + 'MPH');
-                          var cityHumid = $('<p>').text('Humidity : ' + arrayList[i].main.humidity + '%');
-                          var image = $('<img>').attr('src', 'https://openweathermap.org/img/w/' + arrayList[i].weather[0].icon + '.png');
-                          cityMain.append(fiveDayDate).append(cityTemp).append(cityWind).append(cityHumid).append(image);
-                          $('#fiveDay').append(cityMain);
-                      }
-                  }
-              });
-          };
+            
+            var cityMain = $("<div col-12>").append($("<p><h5>" + curCity  + "</h5><p>"));
+            var image = $('<img class="imgsize">').attr('src', 'http://openweathermap.org/img/w/' + data.list[0].weather[0].icon + '.png');        
+            var cityTemp = $('<p>').text('Temperature : ' + curTemp + ' °F');
+            var cityHumid = $('<p>').text('Humidity : ' + curHumidity + '%');
+            // var cityWind = $('<p>').text('Wind Speed : ' + data.wind.speed + 'MPH');       
+      
+            cityMain.append(cityTemp).append(cityHumid).append(image);
+            $('#current-weather').empty();
+            $('#current-weather').append(cityMain);
+            displayForecast(lat,lon);
             })
   }
+
+  function displayForecast(lat, lon) {
+    $.ajax({
+        url: 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=217731b2c4c4604614a6ee76ea8b8b9d&units=imperial',
+        method: "GET",
+    }).then(function (response) {
+        $("#fiveDay").empty()
+        var arrayList = response.list;
+        for (var i = 0; i < arrayList.length; i++) {
+            if (arrayList[i].dt_txt.split(' ')[1] === '12:00:00') {
+                var cityMain = $('<div>');
+                cityMain.addClass('col bg-primary text-white ml-3 mb-3 rounded>');
+                var fiveDayDate = $("<h6>").text(response.list[i].dt_txt.split(" ")[0]);
+                var cityTemp = $('<p>').text('Temp : ' + arrayList[i].main.temp + ' °F ');
+                var cityWind = $('<p>').text('Wind Speed : ' + arrayList[i].wind.speed + 'MPH');
+                var cityHumid = $('<p>').text('Humidity : ' + arrayList[i].main.humidity + '%');
+                var image = $('<img>').attr('src', 'https://openweathermap.org/img/w/' + arrayList[i].weather[0].icon + '.png');
+                cityMain.append(fiveDayDate).append(cityTemp).append(cityWind).append(cityHumid).append(image);
+                $('#fiveDay').append(cityMain);
+            }
+        }
+    });
+};
   
   
   function error() {
