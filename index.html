@@ -25,16 +25,14 @@
 
     <body>
       <header class="header">
-        <h1>Title Header Here</h1>
-        <h2>Secondary Title Header Here</h2>
+        <h1>Your Day At A Glance</h1>
+        <h2 id="dayTime"></h2>
       </header>
 
     <div class = "mainContainer">
       <div class="container1">
-        <div class="row">
-          <p id="searchItem">Current Weather</p>
-          <div class="row form-group form-inline"></div>
-         </div>
+          <h3 id="searchItem">Current Weather</h3>
+          <div id="current-weather" class="card-body weatherCard"></div>
       </div>
 
       <section class = "sectionOne col-9">          
@@ -153,7 +151,7 @@
     
                 <div class="form-group">
                   <label for="due-date-input">Event Date</label>
-                  <input type="text" min='1' id="due-date-input" class="form-control" placeholder="event date?"
+                  <input type="text" min='1' id="due-date-input" class="form-control" placeholder="mm/dd/yy"
                     required />
                 </div>
               </div>
