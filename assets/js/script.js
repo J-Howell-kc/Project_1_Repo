@@ -50,8 +50,6 @@ function displayTime() {
   timeDisplayEl.text(rightNow);
 }
 
-//may adding weather//
-
 function printEventData(name, time, eventLocation, dueDate) {
   var eventRowEl = $('<tr>');
 
@@ -102,7 +100,7 @@ function handleEventFormSubmit(event) {
 
   printEventData(eventName, eventTime, eventLocation, dueDate);
 
-  eventFormEl[0].reset();
+  eventFormEl.reset();
 }
 
 eventFormEl.on('submit', handleEventFormSubmit);
