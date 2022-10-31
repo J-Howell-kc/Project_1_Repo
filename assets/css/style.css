@@ -1,7 +1,7 @@
 .container1 {
     display: inline-block;
     width: 15%;
-    margin: 0px;
+    margin-left: 15px;
     background-image: url(../images/sky.jpg);
     background-size: cover;
   }
@@ -12,6 +12,7 @@
     width: 50%;
     margin-left: 20px;
     background-color: #82e2f3;
+    margin-right: 15px;
   }
   
 #searchItem {
