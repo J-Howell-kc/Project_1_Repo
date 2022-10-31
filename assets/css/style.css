@@ -1,22 +1,22 @@
 .container1 {
     display: inline-block;
-    width: 30%;
-    margin: 0px;
-    background-color: #82e2f3;
-    padding-bottom: 170px;
+    width: 15%;
+    margin-left: 15px;
+    background-image: url(../images/sky.jpg);
+    background-size: cover;
   }
 
 .container2 {
     display: inline;
     float: right;
-    width: 30%;
-    margin: 0px;
+    width: 50%;
+    margin-left: 20px;
     background-color: #82e2f3;
-    padding-bottom: 170px;
+    margin-right: 15px;
   }
   
 #searchItem {
-    margin: 30px 20px 50px 25px;
+    margin: 30px 20px 0px 25px;
     font-size: 25px;
     text-align: center;
     font-style: italic;
@@ -117,8 +117,14 @@ h2 {
 
   .mainContainer {
     display: flex;
+    margin-bottom: 30px;
   }
 
   .sectionOne {
     max-width: 40%;
+  }
+
+  .weatherCard {
+    text-align: center;
+    margin: auto;
   }
