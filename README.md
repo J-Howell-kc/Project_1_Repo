@@ -1,3 +1,4 @@
+planner
 # Project_1_Repo (Name of application)
 Our application enables users to schedule their events in a given city. Moreover, they can view current weather conditions and news for that city. Our application also will provide future weather conditions for that city so that they can prepare for their trip.
 
@@ -16,3 +17,8 @@ Our application enables users to schedule their events in a given city. Moreover
 ## Screenshots
 
 ## Links
+
+# Project_1_Repo
+Repo for Project #1
+
+main
