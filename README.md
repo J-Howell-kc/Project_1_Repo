@@ -15,6 +15,7 @@ Our application enables users to schedule their events in a given city. Moreover
 * Moment.js
 
 ## Screenshots
+![image](https://user-images.githubusercontent.com/49040064/199138683-acdefb9e-5f3b-4f51-a890-724724da851f.png)
 
 ## Links
 
