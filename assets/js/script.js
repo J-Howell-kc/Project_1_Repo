@@ -1,6 +1,6 @@
 var newsAPIFetch = {
   params: { q: 'Kansas_City', lang: 'en', sort_by: 'relevancy', page: '1' },
-  headers: { 'x-api-key': 'RSsPJ5htHZSsJANEYhvohFqthxHLzYcrvZNXDZEZizY' }
+  headers: { 'x-api-key': 'b3GFmCrNJCysyvkCciwLYZeRoqZp4SwXodX5-btB4PM' }
 }
 
 fetch('https://api.newscatcherapi.com/v2/search?q=Kansas&lang=en&sort_by=relevancy&page=1', newsAPIFetch).then(function (rq) {
@@ -11,10 +11,10 @@ fetch('https://api.newscatcherapi.com/v2/search?q=Kansas&lang=en&sort_by=relevan
   for(var i = 0; i < 3; i++){
   var newsTitle = $("<h6>").text(data.articles[i].title);
   console.log(newsTitle);
-  var newsCleanURL = $('<a>').text(data.articles[i].clean_url);
+  var newsCleanURL = $('<a>').text(data.articles[i].clean_url).attr("href", data.articles[i].link);
   console.log(newsCleanURL);
   var newsImg = $('<img>').attr("src", data.articles[i].media )
-  news_main.append(newsTitle).append(newsCleanURL).append(newsImg);
+  news_main.append(newsTitle).append(newsImg).append(newsCleanURL);
   $('#searchItem2').html(news_main);
   }
 })
