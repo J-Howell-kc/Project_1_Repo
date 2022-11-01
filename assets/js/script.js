@@ -1,6 +1,6 @@
 var newsAPIFetch = {
   params: { q: 'Kansas_City', lang: 'en', sort_by: 'relevancy', page: '1' },
-  headers: { 'x-api-key': 'o7m9aVqJxEd2xKm6WMTUn7ZdiDMYfkfqgsxC3a7Woxs' }
+  headers: { 'x-api-key': 'b3GFmCrNJCysyvkCciwLYZeRoqZp4SwXodX5-btB4PM' }
 }
 
 fetch('https://api.newscatcherapi.com/v2/search?q=Kansas&lang=en&sort_by=relevancy&page=1', newsAPIFetch).then(function (rq) {
@@ -11,9 +11,10 @@ fetch('https://api.newscatcherapi.com/v2/search?q=Kansas&lang=en&sort_by=relevan
   for(var i = 0; i < 3; i++){
   var newsTitle = $("<h6>").text(data.articles[i].title);
   console.log(newsTitle);
-  var newsCleanURL = $('<p>').text(data.articles[i].clean_url);
+  var newsCleanURL = $('<a>').text(data.articles[i].clean_url).attr("href", data.articles[i].link);
   console.log(newsCleanURL);
-  news_main.append(newsTitle).append(newsCleanURL);
+  var newsImg = $('<img>').attr("src", data.articles[i].media )
+  news_main.append(newsTitle).append(newsImg).append(newsCleanURL);
   $('#searchItem2').html(news_main);
   }
 })
@@ -31,7 +32,7 @@ function success(position) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      var curTemp = data.list[0].main.temp;
+      var curTemp = Math.floor(data.list[0].main.temp);
       var curCity = data.city.name;
       var curWeatherType = data.list[0].weather[0].description;
       var curHumidity = data.list[0].main.humidity;
@@ -67,8 +68,8 @@ function displayForecast(lat, lon) {
         var cityMain = $('<div>');
         cityMain.addClass('col bg-primary text-white ml-3 mb-3 rounded>');
         var fiveDayDate = $("<h6>").text(response.list[i].dt_txt.split(" ")[0]);
-        var cityTemp = $('<p>').text('Temp : ' + arrayList[i].main.temp + ' °F ');
-        var cityWind = $('<p>').text('Wind Speed : ' + arrayList[i].wind.speed + 'MPH');
+        var cityTemp = $('<p>').text('Temp : ' + Math.floor(arrayList[i].main.temp) + ' °F ');
+        var cityWind = $('<p>').text('Wind Speed : ' + Math.floor(arrayList[i].wind.speed) + 'MPH');
         var cityHumid = $('<p>').text('Humidity : ' + arrayList[i].main.humidity + '%');
         var image = $('<img>').attr('src', 'https://openweathermap.org/img/w/' + arrayList[i].weather[0].icon + '.png');
         cityMain.append(fiveDayDate).append(cityTemp).append(cityWind).append(cityHumid).append(image);
@@ -155,7 +156,7 @@ function handleEventFormSubmit(event) {
 
   printEventData(eventName, eventTime, eventLocation, dueDate);
 
-  eventFormEl.reset();
+  eventFormEl.get(0).reset();
 }
 
 eventFormEl.on('submit', handleEventFormSubmit);
