@@ -1,5 +1,4 @@
-planner
-# Project_1_Repo (Name of application)
+# Day at a Glance
 Our application enables users to schedule their events in a given city. Moreover, they can view current weather conditions and news for that city. Our application also will provide future weather conditions for that city so that they can prepare for their trip.
 
 ## Features
@@ -17,9 +16,4 @@ Our application enables users to schedule their events in a given city. Moreover
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/49040064/199138683-acdefb9e-5f3b-4f51-a890-724724da851f.png)
 
-## Links
-
-# Project_1_Repo
-Repo for Project #1
-
-main
+## [Link](https://j-howell-kc.github.io/Project_1_Repo/)

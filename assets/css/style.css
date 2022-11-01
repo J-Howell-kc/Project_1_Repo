@@ -49,12 +49,17 @@ h2 {
    }
 /*style for planner*/
 
+   .container-fluid {
+    background-image: url(../images/Background.jpeg);
+    background-size: cover;
+   }
+
    :root {
     --blue: #2980b9;
     --lightblue: #3498db;
     --light: #ecf0f1;
-    --darkblue: #2c3e50;
-    --red: #e74c3c;
+    --darkblue: #195190FF;
+    --silver: #A2A2A1FF;
   }
   
   body {
@@ -74,7 +79,7 @@ h2 {
   }
   
   thead {
-    background-color: var(--red);
+    background-color: var(--silver);
     color: var(--light);
     font-weight: 700;
   }
