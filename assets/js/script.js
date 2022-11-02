@@ -1,6 +1,6 @@
 var newsAPIFetch = {
   params: { q: 'Kansas_City', lang: 'en', sort_by: 'relevancy', page: '1' },
-  headers: { 'x-api-key': 'b3GFmCrNJCysyvkCciwLYZeRoqZp4SwXodX5-btB4PM' }
+  headers: { 'x-api-key': 'Iprn1irC7DYPZiRCXyxYnovgEJM4EpsOFz4zJiFkubU' }
 }
 
 fetch('https://api.newscatcherapi.com/v2/search?q=Kansas&lang=en&sort_by=relevancy&page=1', newsAPIFetch).then(function (rq) {
